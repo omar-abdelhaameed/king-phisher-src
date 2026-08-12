@@ -112,7 +112,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 dir(env.REPO_DIR) {
-                    git branch: 'main', url: 'git@github.com:<your-username>/king-phisher-src.git'
+                    git branch: 'main', url: 'https://github.com/omar-abdelhaameed/king-phisher-src.git'
                 }
             }
         }
