@@ -48,3 +48,4 @@ data/client/king_phisher/style/.sass-cache/*
 mprofile_*.dat
  
 docker compose   -f docker-compose.yml   -f docker-compose.ci.yml   -p chat-system-ci-   downcompose.yml
+data/server/king_phisher/GeoLite2-City.mmdb
