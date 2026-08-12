@@ -61,13 +61,13 @@ server:
   # WARNING: SQLite3 is not fully supported as of version 0.1.6, see
   # https://github.com/securestate/king-phisher/wiki/Database#sqlite for more
   # details
-  database: sqlite:////var/king-phisher/king-phisher.db
+  database: postgresql://king_phisher:kingphisher@kp-postgres/king_phisher
 
   # The PostgreSQL database to use
   #database: postgresql://user:pass@localhost/king_phisher
 
   # Fork the server process into the background
-  fork: true
+  fork: false
 
   geoip:
     # The location of the GeoLite2 City database
