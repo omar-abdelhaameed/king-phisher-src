@@ -14,15 +14,14 @@ pipeline {
         stage('Checkout') {
             steps {
                 dir(env.REPO_DIR) {
-                    git branch: 'main', url: 'git@github.com:omar-abdelhaameed/king-phisher-src.git'
+                    git branch: 'master', url: 'git@github.com:omar-abdelhaameed/king-phisher-src.git'
                 }
             }
         }
 
         stage('Ensure network') {
             steps {
-                // required: docker-compose.yml declares kp-net as external,
-                // so compose up fails outright if it doesn't already exist
+
                 sh 'docker network create kp-net || true'
             }
         }
@@ -30,8 +29,6 @@ pipeline {
         stage('Build images') {
             steps {
                 dir(env.REPO_DIR) {
-                    // db is `image: postgres:13` — pulled, not built, so it's
-                    // intentionally excluded here; `compose up` pulls it below
                     sh "docker compose -f docker-compose.yml -p ${COMPOSE_PROJECT} build king-phisher king-phisher-client"
                 }
             }
@@ -119,8 +116,7 @@ pipeline {
 
         stage('Ensure network') {
             steps {
-                // required: docker-compose.yml declares kp-net as external,
-                // so compose up fails outright if it doesn't already exist
+
                 sh 'docker network create kp-net || true'
             }
         }
@@ -128,8 +124,7 @@ pipeline {
         stage('Build images') {
             steps {
                 dir(env.REPO_DIR) {
-                    // db is `image: postgres:13` — pulled, not built, so it's
-                    // intentionally excluded here; `compose up` pulls it below
+
                     sh "docker compose -f docker-compose.yml -p ${COMPOSE_PROJECT} build king-phisher king-phisher-client"
                 }
             }
