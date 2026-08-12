@@ -47,7 +47,7 @@ pipeline {
                         MAX_ATTEMPTS=20
                         SUCCESS=0
                         while [ $ATTEMPTS -lt $MAX_ATTEMPTS ]; do
-                            RESPONSE=$(docker exec king-phisher-king-phisher-1 curl -s -D - -o /dev/null --max-time 3 http://localhost:80/ 2>/dev/null || true)
+                            RESPONSE=$(docker exec king-phisher-king-phisher-1 curl -s -D - -o /dev/null --max-time 3 http://localhost:80/docs 2>/dev/null || true)
                             if [ -n "$RESPONSE" ]; then
                                 SUCCESS=1
                                 break
