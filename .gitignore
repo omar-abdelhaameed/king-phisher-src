@@ -47,3 +47,4 @@ data/client/king_phisher/style/.sass-cache/*
 # ignore mprofile output
 mprofile_*.dat
  
+docker compose   -f docker-compose.yml   -f docker-compose.ci.yml   -p chat-system-ci-   downcompose.yml
