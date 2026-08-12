@@ -5,9 +5,14 @@ pipeline {
         disableConcurrentBuilds()
     }
 
+    triggers {
+        githubPush()
+    }
+
     environment {
-        COMPOSE_PROJECT = 'king-phisher'
-        REPO_DIR        = 'king-phisher-src'
+        COMPOSE_PROJECT   = 'king-phisher'
+        REPO_DIR          = 'king-phisher-src'
+        SLACK_WEBHOOK_URL = credentials('slack-webhook-url')
     }
 
     stages {
@@ -21,17 +26,14 @@ pipeline {
 
         stage('Ensure network') {
             steps {
-                // required: docker-compose.yml declares kp-net as external,
-                // so compose up fails outright if it doesn't already exist
                 sh 'docker network create kp-net || true'
+                sh 'docker network create devsecops-net || true'
             }
         }
 
         stage('Build images') {
             steps {
                 dir(env.REPO_DIR) {
-                    // db is `image: postgres:13` — pulled, not built, so it's
-                    // intentionally excluded here; `compose up` pulls it below
                     sh "docker compose -f docker-compose.yml -p ${COMPOSE_PROJECT} build king-phisher king-phisher-client"
                 }
             }
@@ -65,9 +67,6 @@ pipeline {
                         echo "Server responded with HTTP $STATUS"
                         echo "$RESPONSE" | grep -i "^Server:" || true
 
-                        # 404 at / is CORRECT — no campaign is configured, so a 404
-                        # proves the request reached the real King Phisher handler
-                        # rather than some other service on the port.
                         if [ "$STATUS" != "404" ]; then
                             echo "Unexpected status — expected 404 from the King Phisher handler"
                             exit 1
@@ -90,8 +89,27 @@ pipeline {
                 sh "docker compose -f docker-compose.yml -p ${COMPOSE_PROJECT} down || true"
             }
             archiveArtifacts artifacts: "${REPO_DIR}/king-phisher-server.log", allowEmptyArchive: true
+
+            // unified findings/history record, queryable across both pipelines
+            sh """
+                docker run --rm --network devsecops-net postgres:13 \
+                psql "postgresql://devsecops:devsecops-findings-pw@devsecops-findings-db/devsecops" \
+                -c "INSERT INTO pipeline_runs (pipeline_name, build_number, git_commit, status) VALUES ('king-phisher-deploy', ${BUILD_NUMBER}, '${env.GIT_COMMIT}', '${currentBuild.currentResult}');" || true
+            """
+        }
+        success {
+            sh '''
+                curl -s -X POST -H 'Content-type: application/json' \
+                    --data '{"text":"✅ king-phisher-deploy build #'"${BUILD_NUMBER}"' succeeded"}' \
+                    "$SLACK_WEBHOOK_URL"
+            '''
         }
         failure {
+            sh '''
+                curl -s -X POST -H 'Content-type: application/json' \
+                    --data '{"text":"❌ king-phisher-deploy build #'"${BUILD_NUMBER}"' FAILED — check console output"}' \
+                    "$SLACK_WEBHOOK_URL"
+            '''
             echo 'King Phisher deploy/smoke-test failed — check the archived server log.'
         }
     }
