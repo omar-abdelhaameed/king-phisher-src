@@ -29,7 +29,7 @@ pipeline {
         stage('Build images') {
             steps {
                 dir(env.REPO_DIR) {
-w
+
                     sh "docker compose -f docker-compose.yml -p ${COMPOSE_PROJECT} build king-phisher king-phisher-client"
                 }
             }
