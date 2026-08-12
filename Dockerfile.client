@@ -1,0 +1,37 @@
+FROM python:3.7-slim-buster
+
+RUN printf '%s\n' \
+    'deb http://archive.debian.org/debian buster main' \
+    'deb http://archive.debian.org/debian-security buster/updates main' \
+    > /etc/apt/sources.list \
+    && printf 'Acquire::Check-Valid-Until "false";\n' > /etc/apt/apt.conf.d/99no-check-valid-until
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    pkg-config \
+    libpq-dev \
+    libffi-dev \
+    libssl-dev \
+    libgeos-dev \
+    libgirepository1.0-dev \
+    libcairo2-dev \
+    libgtk-3-dev \
+    gir1.2-gtksource-3.0 \
+    gir1.2-vte-2.91 \
+    gir1.2-webkit2-4.0 \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir "pip<23" "setuptools<60" "pipenv==2018.11.26"
+
+WORKDIR /opt/king-phisher
+COPY . /opt/king-phisher
+
+RUN pipenv --python /usr/local/bin/python \
+    && pipenv install --skip-lock \
+    && pipenv run pip install "markupsafe==2.0.1"
+
+COPY entrypoint.client.sh /opt/king-phisher/entrypoint.client.sh
+RUN chmod +x /opt/king-phisher/entrypoint.client.sh
+
+ENTRYPOINT ["/opt/king-phisher/entrypoint.client.sh"]
