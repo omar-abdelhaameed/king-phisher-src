@@ -42,32 +42,32 @@
  * https://github.com/GNOME/gtk/tree/master/gtk/ui
  */
 /* two primary colors for mixing and one for highlighting */
-@define-color theme_color_0 #00203a;
-@define-color theme_color_1 #5d84a8;
-@define-color theme_color_2 #00bf8c;
-@define-color theme_color_bg shade(#00203a, 1.2);
+@define-color theme_color_0 #0D1117;
+@define-color theme_color_1 #3B82F6;
+@define-color theme_color_2 #10B981;
+@define-color theme_color_bg shade(#0D1117, 1.2);
 /* treeview normal */
-@define-color theme_color_tv_bg #00203a;
+@define-color theme_color_tv_bg #0D1117;
 @define-color theme_color_tv_fg #ffffff;
 /* treeview highlight */
 @define-color theme_color_tv_hlbg @theme_color_2;
 @define-color theme_color_tv_hlfg white;
 /* treeview hover */
-@define-color theme_color_tv_hobg #5d84a8;
+@define-color theme_color_tv_hobg #3B82F6;
 @define-color theme_color_tv_hofg #ffffff;
 /* graph colors */
-@define-color theme_color_graph_bg #254866;
+@define-color theme_color_graph_bg #161B22;
 @define-color theme_color_graph_fg #ffffff;
-@define-color theme_color_graph_bar_bg #3c5b77;
-@define-color theme_color_graph_bar_fg #c0dcff;
-@define-color theme_color_graph_line_bg #92a4b3;
-@define-color theme_color_graph_line_fg #002645;
-@define-color theme_color_graph_map_land #3c5b77;
-@define-color theme_color_graph_map_marker1 #ffc20f;
+@define-color theme_color_graph_bar_bg #1F2937;
+@define-color theme_color_graph_bar_fg #E5E7EB;
+@define-color theme_color_graph_line_bg #9CA3AF;
+@define-color theme_color_graph_line_fg #0D1117;
+@define-color theme_color_graph_map_land #1F2937;
+@define-color theme_color_graph_map_marker1 #F59E0B;
 @define-color theme_color_graph_map_marker2 @theme_color_2;
-@define-color theme_color_graph_map_water #c0dcff;
-@define-color theme_color_graph_pie_high #c0dcff;
-@define-color theme_color_graph_pie_low #3c5b77;
+@define-color theme_color_graph_map_water #E5E7EB;
+@define-color theme_color_graph_pie_high #E5E7EB;
+@define-color theme_color_graph_pie_low #1F2937;
 /* background mixins */
 /* border mixins */
 /* button mixins */
@@ -79,7 +79,7 @@
 }
 
 .background {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
@@ -95,25 +95,25 @@
 }
 
 .sidebar {
-  background-image: linear-gradient(to bottom, shade(#5d84a8, 1.1), shade(#00203a, 1.3));
+  background-image: linear-gradient(to bottom, shade(#3B82F6, 1.1), shade(#0D1117, 1.3));
   color: white;
 }
 .sidebar .highlight {
-  background-image: linear-gradient(to bottom, shade(#00203a, 1.25), shade(#00203a, 1.5));
+  background-image: linear-gradient(to bottom, shade(#0D1117, 1.25), shade(#0D1117, 1.5));
   font-weight: bold;
 }
 
 .multilineentry {
   background-color: alpha(white, 0.8);
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 3px;
 }
 .multilineentry:disabled {
   border-color: white;
 }
 .multilineentry:disabled {
-  background-color: alpha(darkgray, 0.8);
+  background-color: alpha(#9CA3AF, 0.8);
 }
 .multilineentry > textview.view {
   background-color: transparent;
@@ -126,34 +126,34 @@
 }
 .multilineentry > textview.view text {
   background: transparent;
-  color: #00203a;
+  color: #0D1117;
   min-height: 32px;
 }
 .multilineentry > textview.view text:disabled {
   color: white;
 }
 .multilineentry > textview.view text > selection {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 
 .titlebar {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   background-image: none;
   color: white;
 }
 
 .tooltip {
-  background-color: alpha(#00203a, 0.8);
+  background-color: alpha(#0D1117, 0.8);
   background-image: none;
   border-radius: 5px;
 }
 
 button {
-  background-image: linear-gradient(to bottom, #5c83a7, #00203a);
+  background-image: linear-gradient(to bottom, #3b81f4, #0D1117);
   background-size: 100% 100%;
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 3px;
   color: white;
 }
@@ -161,42 +161,42 @@ button:disabled {
   border-color: white;
 }
 button:active {
-  background-image: linear-gradient(to bottom, shade(alpha(#5d84a8, 0.7), 1), shade(alpha(#5d84a8, 0.7), 1.25));
+  background-image: linear-gradient(to bottom, shade(alpha(#3B82F6, 0.7), 1), shade(alpha(#3B82F6, 0.7), 1.25));
   background-size: 100% 100%;
-  color: #00203a;
+  color: #0D1117;
 }
 button:hover {
-  background-image: linear-gradient(to bottom, shade(alpha(#5d84a8, 0.7), 1), shade(alpha(#5d84a8, 0.7), 1.25));
+  background-image: linear-gradient(to bottom, shade(alpha(#3B82F6, 0.7), 1), shade(alpha(#3B82F6, 0.7), 1.25));
   background-size: 100% 100%;
 }
 button:disabled {
-  background-color: alpha(darkgray, 0.8);
+  background-color: alpha(#9CA3AF, 0.8);
   background-image: none;
 }
 button:selected {
-  background-image: linear-gradient(to bottom, shade(alpha(#5d84a8, 0.7), 1), shade(alpha(#5d84a8, 0.7), 1.25));
+  background-image: linear-gradient(to bottom, shade(alpha(#3B82F6, 0.7), 1), shade(alpha(#3B82F6, 0.7), 1.25));
   background-size: 100% 100%;
-  color: #00203a;
+  color: #0D1117;
 }
 
 calendar {
   background-color: white;
   background-image: none;
-  color: #00203a;
+  color: #0D1117;
 }
 calendar:disabled {
-  background-color: alpha(gray, 0.8);
+  background-color: alpha(#9CA3AF, 0.8);
   color: white;
 }
 calendar:disabled:selected {
-  background-color: alpha(lightgray, 0.8);
+  background-color: alpha(#E5E7EB, 0.8);
 }
 calendar:selected {
-  background-color: #00bf8c;
+  background-color: #10B981;
   color: white;
 }
 calendar .header {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 
@@ -210,10 +210,10 @@ checkbutton.text-button {
 }
 checkbutton.text-button:hover {
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 3px;
-  background-color: alpha(#00203a, 0.8);
-  color: #5d84a8;
+  background-color: alpha(#0D1117, 0.8);
+  color: #3B82F6;
   padding: 2px 2px 4px;
 }
 checkbutton.text-button:hover:disabled {
@@ -227,39 +227,39 @@ combobox .separator {
 
 entry {
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 3px;
   background-color: alpha(white, 0.8);
   background-image: none;
-  color: #00203a;
+  color: #0D1117;
   min-height: 32px;
 }
 entry:disabled {
   border-color: white;
 }
 entry:disabled {
-  background-color: alpha(darkgray, 0.8);
+  background-color: alpha(#9CA3AF, 0.8);
   color: white;
 }
 entry > selection {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 
 filechooser {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 filechooser .view {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 
 frame {
   background: none;
-  border: 2px solid shade(#00203a, 1.75);
+  border: 2px solid shade(#0D1117, 1.75);
 }
 frame > label {
   margin-top: 3px;
@@ -275,7 +275,7 @@ infobar {
   background: none;
 }
 infobar > revealer > box {
-  background: #5d84a8;
+  background: #3B82F6;
 }
 
 label {
@@ -286,26 +286,26 @@ label {
 }
 
 list {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 list row {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 list row:hover {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 
 menubar {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 menubar > menuitem {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   background-image: none;
 }
 menubar > menuitem > label {
@@ -321,10 +321,10 @@ menuitem > label {
   color: black;
 }
 menuitem > label:disabled {
-  color: darkgray;
+  color: #9CA3AF;
 }
 menuitem:hover {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   background-image: none;
   color: white;
 }
@@ -333,21 +333,21 @@ menuitem:hover > label {
 }
 
 modelbutton {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 modelbutton:disabled {
-  background-color: alpha(darkgray, 0.8);
+  background-color: alpha(#9CA3AF, 0.8);
   background-image: none;
-  border-color: darkgray;
+  border-color: #9CA3AF;
 }
 modelbutton:hover {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
 }
 
 notebook > header {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
   border-width: 2px;
@@ -360,11 +360,11 @@ notebook tab {
   padding: 2px 8px 2px 8px;
 }
 notebook tab:checked {
-  background-image: linear-gradient(to bottom, shade(#5d84a8, 1), shade(#00203a, 1.25));
+  background-image: linear-gradient(to bottom, shade(#3B82F6, 1), shade(#0D1117, 1.25));
   border-radius: 4px 4px 2px 2px;
 }
 notebook stack {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
@@ -373,38 +373,38 @@ placessidebar > viewport.frame {
   border-style: none;
 }
 placessidebar row {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 placessidebar row:selected {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 
 placesview {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 
 popover.background {
-  background-color: #00203a;
+  background-color: #0D1117;
   color: white;
 }
 
 progressbar {
   background-image: none;
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 progressbar trough {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   border-radius: 3px;
 }
 progressbar trough progress {
-  background-color: #00bf8c;
+  background-color: #10B981;
   background-image: none;
   border-radius: 3px;
   border-width: 0 0 0px;
@@ -433,10 +433,10 @@ radiobutton.text-button {
 }
 radiobutton.text-button:hover {
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 3px;
-  background-color: alpha(#00203a, 0.8);
-  color: #5d84a8;
+  background-color: alpha(#0D1117, 0.8);
+  color: #3B82F6;
   padding: 2px 2px 4px;
 }
 radiobutton.text-button:hover:disabled {
@@ -461,23 +461,23 @@ scrollbar button {
 }
 scrollbar slider {
   background-clip: padding-box;
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   border: 4px solid transparent;
   border-radius: 8px;
   min-height: 6px;
   min-width: 6px;
 }
 scrollbar.top {
-  border-bottom: 1px solid shade(#00203a, 1.2);
+  border-bottom: 1px solid shade(#0D1117, 1.2);
 }
 scrollbar.bottom {
-  border-top: 1px solid shade(#00203a, 1.2);
+  border-top: 1px solid shade(#0D1117, 1.2);
 }
 scrollbar.left {
-  border-right: 1px solid shade(#00203a, 1.2);
+  border-right: 1px solid shade(#0D1117, 1.2);
 }
 scrollbar.right {
-  border-left: 1px solid shade(#00203a, 1.2);
+  border-left: 1px solid shade(#0D1117, 1.2);
 }
 
 scrolledwindow {
@@ -487,11 +487,11 @@ scrolledwindow {
 spinbutton {
   background-color: transparent;
   background-image: none;
-  color: #00203a;
+  color: #0D1117;
 }
 
 switch {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
   font-size: smaller;
@@ -500,7 +500,7 @@ switch {
 }
 switch slider {
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 3px;
   margin: 0px;
   min-width: 40px;
@@ -510,39 +510,39 @@ switch slider:disabled {
   border-color: white;
 }
 switch:checked {
-  background-color: #00bf8c;
+  background-color: #10B981;
   color: white;
 }
 switch:disabled {
-  color: #8e9192;
-  background-color: #f4f4f4;
+  color: #9CA3AF;
+  background-color: #E5E7EB;
 }
 
 textview.view text {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
 textview.view text selection {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: white;
 }
 
 toolbar {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   background-image: none;
 }
 
 treeview.view {
-  background-color: #00203a;
+  background-color: #0D1117;
   color: #ffffff;
 }
 treeview.view:hover {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: #ffffff;
 }
 treeview.view:selected {
-  background-color: #5d84a8;
+  background-color: #3B82F6;
   color: #ffffff;
 }
 treeview.view entry {
@@ -550,7 +550,7 @@ treeview.view entry {
 }
 treeview.view.progressbar {
   border-radius: 3px;
-  background-image: linear-gradient(to bottom, #5d84a8, #496a89);
+  background-image: linear-gradient(to bottom, #3B82F6, #0b64f4);
   border: 0px solid;
 }
 treeview.view.progressbar:focus, treeview.view.progressbar:hover {
@@ -559,12 +559,12 @@ treeview.view.progressbar:focus, treeview.view.progressbar:hover {
 }
 treeview.view header button {
   border: 1px solid;
-  border-color: shade(#00203a, 1.2);
+  border-color: shade(#0D1117, 1.2);
   border-radius: 0px;
 }
 
 viewport {
-  background-color: shade(#00203a, 1.2);
+  background-color: shade(#0D1117, 1.2);
   background-image: none;
   color: #ffffff;
 }
