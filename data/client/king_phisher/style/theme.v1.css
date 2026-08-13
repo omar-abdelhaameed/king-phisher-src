@@ -89,9 +89,10 @@ GtkButton {
     mix(@theme_color_0, @theme_color_1, 0.75),
     @theme_color_0);
   background-size: 100% 100%;
-  border-radius: 3px;
+  border-radius: 5px;
   border: 1px solid;
   border-color: @theme_color_0;
+  padding: 5px 12px;
   color: mix(@theme_color_0, @theme_color_1, 0.25);
 }
 
@@ -146,11 +147,11 @@ GtkCalendar .header {
 
 GtkCheckButton.text-button {
   background-image: none;
-  border-radius: 3px;
+  border-radius: 4px;
   border: 1px solid;
   border-color: @theme_color_1;
   color: mix(@theme_color_0, @theme_color_1, 0.25);
-  padding: 1px 2px 4px;
+  padding: 3px 6px 4px;
 }
 
 GtkCheckButton.text-button:hover {
@@ -173,11 +174,11 @@ GtkComboBox > GtkButton {
 }
 
 GtkEntry {
-  background-color: alpha(white, 0.8);
+  background-color: alpha(white, 0.85);
   background-image: none;
-  border-radius: 3px;
+  border-radius: 4px;
   color: @theme_color_0;
-  padding: 5px 5px 6px;
+  padding: 5px 8px 6px;
 }
 
 GtkEntry:insensitive {
@@ -382,7 +383,7 @@ GtkWindow:hover {
 }
 
 .notebook tab {
-  padding: 4px 10px 5px 10px;
+  padding: 6px 14px 6px 14px;
   background-color: transparent;
   background-image: none;
   border-color: transparent;
@@ -392,7 +393,7 @@ GtkWindow:hover {
   background-image: linear-gradient(to bottom,
     shade(@theme_color_1, 1),
     shade(@theme_color_0, 1.25));
-  border-radius: 4px 4px 2px 2px;
+  border-radius: 6px 6px 0px 0px;
 }
 
 .sidebar {
