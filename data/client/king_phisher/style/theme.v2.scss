@@ -80,7 +80,7 @@
   background-color: gtkalpha(white, 0.8);
   @include bo-opaque();
   &:disabled {
-    background-color: gtkalpha(#9CA3AF, 0.8);
+    background-color: gtkalpha(#8A8583, 0.8);
   }
   > textview.view {
     background-color: transparent;
@@ -133,7 +133,7 @@ button {
     background-size: 100% 100%;
   }
   &:disabled {
-    background-color: gtkalpha(#9CA3AF, 0.8);
+    background-color: gtkalpha(#8A8583, 0.8);
     background-image: none
   }
   &:selected {
@@ -148,10 +148,10 @@ calendar {
   background-image: none;
   color: $theme_color_0;
   &:disabled {
-    background-color: gtkalpha(#9CA3AF, 0.8);
+    background-color: gtkalpha(#8A8583, 0.8);
     color: white;
     &:selected {
-      background-color: gtkalpha(#E5E7EB, 0.8);
+      background-color: gtkalpha(#F2E8DE, 0.8);
     }
   }
   &:selected {
@@ -182,7 +182,7 @@ entry {
   color: $theme_color_0;
   min-height: 32px;
   &:disabled {
-    background-color: gtkalpha(#9CA3AF, 0.8);
+    background-color: gtkalpha(#8A8583, 0.8);
     color: white;
   }
   > selection {
@@ -258,7 +258,7 @@ menuitem {
   > label {
     color: black;
     &:disabled {
-      color: #9CA3AF;
+      color: #8A8583;
     }
   }
   &:hover {
@@ -274,9 +274,9 @@ menuitem {
 modelbutton {
   @include bg-opaque();
   &:disabled {
-    background-color: gtkalpha(#9CA3AF, 0.8);
+    background-color: gtkalpha(#8A8583, 0.8);
     background-image: none;
-    border-color: #9CA3AF;
+    border-color: #8A8583;
   }
   &:hover {
     background-color: $theme_color_1;
@@ -411,8 +411,8 @@ switch {
     color: white;
   }
   &:disabled {
-    color: #9CA3AF;
-    background-color: #E5E7EB;
+    color: #8A8583;
+    background-color: #F2E8DE;
   }
 }
 

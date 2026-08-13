@@ -43,9 +43,9 @@
  */
 
 /* two primary colors for mixing and one for highlighting */
-@define-color theme_color_0 #0D1117;
-@define-color theme_color_1 #3B82F6;
-@define-color theme_color_2 #10B981;
+@define-color theme_color_0 #0E0B0B;
+@define-color theme_color_1 #FF3B30;
+@define-color theme_color_2 #FF5A36;
 @define-color theme_color_bg shade(@theme_color_0, 1.2);
 
 /* treeview normal */
@@ -58,18 +58,18 @@
 @define-color theme_color_tv_hobg @theme_color_1;
 @define-color theme_color_tv_hofg white;
 /* graph colors */
-@define-color theme_color_graph_bg #161B22;
+@define-color theme_color_graph_bg #1A1010;
 @define-color theme_color_graph_fg #ffffff;
-@define-color theme_color_graph_bar_bg #1F2937;
-@define-color theme_color_graph_bar_fg #E5E7EB;
-@define-color theme_color_graph_line_bg #9CA3AF;
-@define-color theme_color_graph_line_fg #0D1117;
-@define-color theme_color_graph_map_land #1F2937;
-@define-color theme_color_graph_map_marker1 #F59E0B;
+@define-color theme_color_graph_bar_bg #271713;
+@define-color theme_color_graph_bar_fg #F2E8DE;
+@define-color theme_color_graph_line_bg #8A8583;
+@define-color theme_color_graph_line_fg #0E0B0B;
+@define-color theme_color_graph_map_land #271713;
+@define-color theme_color_graph_map_marker1 #FF5A36;
 @define-color theme_color_graph_map_marker2 @theme_color_2;
-@define-color theme_color_graph_map_water #E5E7EB;
-@define-color theme_color_graph_pie_high #E5E7EB;
-@define-color theme_color_graph_pie_low #1F2937;
+@define-color theme_color_graph_map_water #F2E8DE;
+@define-color theme_color_graph_pie_high #F2E8DE;
+@define-color theme_color_graph_pie_low #271713;
 
 * {
   border: none;
@@ -121,13 +121,13 @@ GtkCalendar {
 }
 
 GtkCalendar:insensitive {
-  background-color: alpha(#9CA3AF, 0.8);
+  background-color: alpha(#8A8583, 0.8);
   background-image: none;
   color: white;
 }
 
 GtkCalendar:insensitive:selected {
-  background-color: alpha(#E5E7EB, 0.8);
+  background-color: alpha(#F2E8DE, 0.8);
   background-image: none;
   color: white;
 }
@@ -181,7 +181,7 @@ GtkEntry {
 }
 
 GtkEntry:insensitive {
-  background-color: alpha(#9CA3AF, 0.8);
+  background-color: alpha(#8A8583, 0.8);
   background-image: none;
 }
 
@@ -285,7 +285,7 @@ GtkSwitch {
 GtkSwitch.trough {
   border-radius: 3px;
   color: black;
-  background-color: #E5E7EB;
+  background-color: #F2E8DE;
   background-image: none;
 }
 
@@ -296,13 +296,13 @@ GtkSwitch.trough:active {
 }
 
 GtkSwitch.trough:insensitive {
-  color: #9CA3AF;
-  background-color: #E5E7EB;
+  color: #8A8583;
+  background-color: #F2E8DE;
 }
 
 GtkSwitch.trough:backdrop:insensitive {
-  color: #9CA3AF;
-  background-color: #E5E7EB;
+  color: #8A8583;
+  background-color: #F2E8DE;
 }
 
 GtkSwitch.slider {
@@ -441,7 +441,7 @@ GtkWindow:hover {
   border-radius: 3px;
   padding: 5px 5px 6px; }
   .multilineentry:insensitive {
-    background-color: alpha(#9CA3AF, 0.8); }
+    background-color: alpha(#8A8583, 0.8); }
   .multilineentry GtkTextView {
     background-color: transparent;
     background-image: none;
@@ -450,5 +450,5 @@ GtkWindow:hover {
       background-color: @theme_color_1;
       color: white; }
     .multilineentry GtkTextView:insensitive {
-      background-color: alpha(#9CA3AF, 0.8);
+      background-color: alpha(#8A8583, 0.8);
       background-image: none; }
