@@ -4,18 +4,17 @@ services:
     environment:
       POSTGRES_DB: king_phisher
       POSTGRES_USER: king_phisher
-      POSTGRES_PASSWORD: kingphisher   # must match server_config.yml's connection string
+      POSTGRES_PASSWORD: kingphisher
     volumes:
       - kp-db-data:/var/lib/postgresql/data
     networks:
       kp-net:
         aliases:
-          - kp-postgres   # server_config.yml connects to this hostname, not "db"
+          - kp-postgres
 
   king-phisher:
     build: .
-    init: true          # proper pid 1 zombie-reaping — the server forks a
-                         # separate PAM auth helper process on startup
+    init: true
     ports:
       - "443:80"
       - "2222:22"
@@ -39,6 +38,14 @@ services:
     networks:
       - kp-net
 
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - kp-net
+
 networks:
   kp-net:
     external: true
@@ -47,4 +54,3 @@ volumes:
   king-phisher-data:
     external: true
   kp-db-data:
-
