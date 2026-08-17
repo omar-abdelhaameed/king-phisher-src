@@ -1,0 +1,58 @@
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: king_phisher
+      POSTGRES_USER: king_phisher
+      POSTGRES_PASSWORD: kingphisher   # must match server_config.yml's connection string
+    volumes:
+      - kp-db-data:/var/lib/postgresql/data
+    networks:
+      kp-net:
+        aliases:
+          - kp-postgres   # server_config.yml connects to this hostname, not "db"
+
+
+ king-phisher:
+    build: .
+    init: true          # proper pid 1 zombie-reaping — the server forks a
+                         # separate PAM auth helper process on startup
+    ports:
+      - "443:80"
+      - "2222:22"
+    volumes:
+      - king-phisher-data:/var/king-phisher
+    depends_on:
+      - db
+    networks:
+      - kp-net
+
+  king-phisher-client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    depends_on:
+      - king-phisher
+    networks:
+      - kp-net
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - kp-net
+networks:
+  kp-net:
+    external: true
+
+volumes:
+  king-phisher-data:
+    external: true
+  kp-db-data:
+
